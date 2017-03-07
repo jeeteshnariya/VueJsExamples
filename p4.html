@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<h1>Events listener</h1>
+    <div id="app">
+        <button v-on:click="increase">click</button> <br>
+        {{ counter }}
+
+        <p v-on:mousemove="updateCoordinates" >
+        	{{ x }} <br> {{ y}}
+        	<br>
+        	<br>
+        	<br>
+        	<span @mousemove="stopevents">DEAD POINT</span><br>
+        	<span @mousemove.stop.prevent="">prevent Stop</span>
+        </p>
+
+        
+        <hr>
+        <!-- pass para and shortcut v-on / @ -->
+        <button @click="passparam(2)">{{ counter2 }}</button>
+         
+
+
+        <hr>
+        <!-- key modifier when hit enter space / @ -->
+        <input type="text" v-on:keyup.enter.space="alertMe"> <b>when hit Space key </b>
+		
+
+
+		<hr>
+
+
+		<!-- direct access function in templates -->
+		<button v-on:click="direct++">{{ direct * 2 }}</button> <br>
+		{{ direct * 2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}
+		<div v-if="direct > 10"> It's is display when  direct value > 10 and now value is {{ direct }}</div>
+		<div v-else>We didn't get value up to 10</div>
+    </div>
+
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+        	counter:0,
+        	counter2:0,
+        	x:0,
+        	y:0,
+        	direct:0,
+        },
+        methods: {
+        	increase: function() {
+        		 this.counter++;
+        	},
+        	updateCoordinates: function(event){
+        		this.x = event.clientX;
+        		this.y = event.clientY;
+        	},
+        	passparam: function(step){
+        		this.counter2 += step;
+        	},
+        	stopevents: function(event){
+        		event.stopPropagation();
+        	},
+        	alertMe: function(){
+        		alert('When Enter Click');
+        	}
+        }
+
+    });
+    </script>
+
+    <style scoped>
+    	p{
+    		width: 200px;
+    		height: 200px;
+    		display: block;
+    		border:1px solid;
+    	}
+    	span{
+    		width: 50px;height: 50px; background: orange;display: block;
+    	}
+    </style>
+</body>
+
+</html>
