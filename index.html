@@ -8,16 +8,51 @@
 </head>
 <body>
     <div id="app">
-        <div :class="myclass">{{ counter }}</div>
+        <div>{{ counter }}</div>
+        <button @click="increase">Increase</button> <br> 
+        <button @click="counter--">Decrease</button> <!-- <b>Result not update when < 5 using this btn</b> --> <br>
+        <p>Counter : {{ counter }}</p>
+        <p>Result : {{ result }} <!-- <b>Reset not when de--</b>  --></p>
+        <p>Result With out var in data : {{ result_notprop() }} <!-- <b>work both de++ and in++ bcz it's function</b> --></p>
+
+        <hr>
+        <p>{{ output }} <!-- <b>computed function use like data property & work like methods result_notprop function </b> --></p>
+
+        <hr>
+        <h4>Open console log and view</h4>
+        * Note :- Method function all time calculate any Event call but computed Not when data is not related:-
+        <hr>
+        <button @click="sndCounter++">Snd Counter</button> <br> 
+        <p>Second Result : {{ sndCounter }} <!-- <b>Not Hit computed function bcz it not related this data property </b> --> </p>
+         
     </div>
     <script>
-        new Vue({
+        var app =new Vue({
             el:'#app',
             data:{
                 counter:0,
-                myclass:"red",
+                result:'',
+                sndCounter:5,
+            },
+            methods:{
+                increase:function() {
+                    console.log('Called Methods Function');
+                    this.counter++;
+                    this.result = this.counter > 5 ? 'Greater 5 ': 'Less 5' 
+                },
+                result_notprop(){
+                    return  this.counter > 5 ? 'Greater 5 ': 'Less 5' 
+                }
+            },
+            computed:{
+                output:function(){
+                       console.log('Called Computed Function');
+                      return  this.counter > 5 ? 'Greater 5 ': 'Less 5' 
+                }
             }
         })
     </script>
+<hr>
+   
 </body>
 </html>
