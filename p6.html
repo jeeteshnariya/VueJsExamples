@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Computed Function</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <button @click="count++">Click Me</button>
+         <p>{{ count }}</p>
+         <hr>
+         <h3>{{ result }} for {{ count }} time's</h3>
+         <p>When Event hit it watch count prop related function in watch methods</p>
+         <hr>
+         <p>1 Per click Per watch if hit 2 time it watch 2 time</p>
+         <h4>View console logs</h4>
+    </div>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+                count:0,
+                result:'I can\'t watching',
+            },
+            watch:{
+                count:function () {
+                    var vm = this;
+                    setTimeout(function(){
+                        vm.result = 'Now I Watched' ;
+                        console.log('time\'s I M Watched');
+                    },1000);
+                }
+            }
+        })
+    </script>
+<hr>
+   
+</body>
+</html>

@@ -11,3 +11,4 @@ P3.Attribute's :href , v-once , v-html
 P4.Events Listener Examples Direct Access Next Ch.
 
 P5. Computed,Methods 
+P6. Watch
