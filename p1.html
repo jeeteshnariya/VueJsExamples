@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body >
+<div id="app">
+<input type="text" v-model="message">
+  <p>{{ message }}</p>
+  <p>{{ sayhello() }}</p>
+</div>
+
+
+
+<script>
+	
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods:{
+  	sayhello:function() {
+  		 this.message;
+  	}
+  }//methods
+})
+</script>
+
+
+</body>
+</html>

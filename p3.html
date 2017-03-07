@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body >
+<div id="app">
+<input type="text" v-model="message">
+  <p>{{ message }}</p>
+  <p>{{ sayhello() }}</p>
+  <button @click="heyClicked"> hey</button>
+<br>
+<hr>
+  <!-- v-bind attribuite  :href or v-bind:href -->
+  <a :href="link">This link attrb</a> <br>
+  <a href="{{ link }}">not work</a> <br>
+<hr>
+<!--   v-once and v-html prase -->
+ <p v-once>{{ message }}  Not chage one time loaded</p>
+<p>{{ flink }}</p>
+<p v-html="flink"></p>
+</div>
+
+
+
+<script>
+	
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!',
+    link:'http://google.com',
+    flink: '<a :href="link">Google By v-html</a>',
+  },
+  methods:{
+  	sayhello:function() {
+  		 this.message;
+  	},
+  	heyClicked: function() {
+  		 this.message= "i am clicked";
+  	}
+  }//methods
+})
+</script>
+
+
+</body>
+</html>
