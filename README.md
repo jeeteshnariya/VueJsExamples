@@ -1,3 +1,9 @@
-"# VueJs Examples" 
+VueJs Examples
+==============
 
--- P1 . Vue Scope Display and function Direct call in {{}}
+View More Info in snytax comments
+--------------
+
+-P1.Vue Scope Display and function Direct call in {{}}
+-P2.Button Event Example
+-P3.Attribute's :href , v-once , v-html
