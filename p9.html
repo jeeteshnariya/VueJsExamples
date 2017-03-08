@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch 9 V-for Loop</title>
+      <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ start }}</p>
+    <hr>
+    <ul>
+      <li v-for="(ingredient, i) in ingredients" :key="ingredient">({{ i }}){{ ingredient }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li v-for="person in persons">{{person.name}}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li v-for="person in persons">
+        <span v-for="value in person">{{value}}, </span>
+      </li>
+    </ul>
+    <hr>
+    <ul>
+      <li v-for="person in persons">
+        <span v-for="(value, keyy, myindex) in person">({{myindex}}){{ keyy }} is {{value}}, </span>
+      </li>
+    </ul>
+    <hr>
+    <span v-for="n in 14">({{ n }})+ plus</span>
+    <hr>
+    <button @click="ingredients.push('Newvulue')">Add Me</button>
+  </div>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data:{
+        start:'Hello Loop\'s',
+        ingredients:['salt','sugar','blacksalt'],
+        persons:[
+          {name:'Max',age:25,color:'myRuby'},
+          {name:'Anna',age:24,color:'myGold'}
+        ]
+      },
+      methods:{
+
+      }
+    })
+  </script>
+</body>
+</html>
