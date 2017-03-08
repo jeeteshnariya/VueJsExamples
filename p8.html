@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch 8- Conditionals</title>
+      <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ start }} & {{ trueFalse}}</p>
+    <hr>
+    <div v-if="trueFalse">Show if set True</div>
+    <div v-else>Show when False</div>
+    <template v-if="trueFalse">
+      <h3>Inside Template</h3>
+      <p>Console it than not view tempalate tag</p>
+    </template>
+    <div v-show="trueFalse">
+      <h3>v show still there & don't use template tag second time here</h3>
+      <p>Console it display none not remove</p>
+    </div>
+    <hr>
+    <button @click="trueFalse = !trueFalse">Switch</button>
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        start:'Hello Loop\'s',
+        trueFalse :true,
+      },
+      methods:{
+
+      }
+    })
+  </script>
+</body>
+</html>

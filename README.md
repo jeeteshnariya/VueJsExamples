@@ -20,4 +20,6 @@ P6. Watch function
 Note:- P7 When use :class & :style all property in Like :class="{red : ifTrue}" Not -> :class="red:ifTrue"
 ```
 
-P7. True/False, :class, Computed-Myclass, Multiclass Attach, Data Property Apply :class, [dataProperty By Model & { obj class value}] both use in :class, :style using css direct property in CamelCase.!
+P7. True/False, :class, Computed-Myclass, Multiclass Attach, :class="Data Property Apply",:class=[data,{ obj of class}] , :style using css direct property in CamelCase.!
+
+P8. Conditionals & v-if v-else & v-show
